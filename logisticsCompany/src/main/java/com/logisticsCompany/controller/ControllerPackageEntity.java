@@ -26,7 +26,7 @@ public class ControllerPackageEntity {
         //create entity
         PackageEntity createdPackageEntity = servicePackageEntity.createPackage(packageRequestDto);
         //mapping entity to ResponseDto
-        PackageReponseDto packageReponseDto = packageMapper.packageEntityToPackageReponseDto(createdPackageEntity);
+        PackageReponseDto packageReponseDto = packageMapper.toDto(createdPackageEntity);
         return ResponseEntity.ok(packageReponseDto);
     }
 

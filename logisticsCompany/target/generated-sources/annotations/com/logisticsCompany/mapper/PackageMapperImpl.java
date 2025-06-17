@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 public class PackageMapperImpl implements PackageMapper {
 
     @Override
-    public PackageEntity packageRequestDtoToPackageEntity(PackageRequestDto packageRequestDto) {
+    public PackageEntity toEntity(PackageRequestDto packageRequestDto) {
         if ( packageRequestDto == null ) {
             return null;
         }
@@ -31,7 +31,7 @@ public class PackageMapperImpl implements PackageMapper {
     }
 
     @Override
-    public PackageReponseDto packageEntityToPackageReponseDto(PackageEntity packageEntity) {
+    public PackageReponseDto toDto(PackageEntity packageEntity) {
         if ( packageEntity == null ) {
             return null;
         }

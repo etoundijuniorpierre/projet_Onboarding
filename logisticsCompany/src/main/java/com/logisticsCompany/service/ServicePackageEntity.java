@@ -25,7 +25,7 @@ public class ServicePackageEntity {
 
     //create packageEntity
     public PackageEntity createPackage(PackageRequestDto packageRequestDto) {
-        PackageEntity packageEntity = packageMapper.packageRequestDtoToPackageEntity(packageRequestDto);
+        PackageEntity packageEntity = packageMapper.toEntity(packageRequestDto);
         return packageEntityRepository.save(packageEntity);
     }
 
@@ -33,7 +33,7 @@ public class ServicePackageEntity {
     public Collection<PackageReponseDto> getAllPackages() {
         return packageEntityRepository.findAll()
                 .stream()
-                .map(packageMapper::packageEntityToPackageReponseDto)
+                .map(packageMapper::toDto)
                 .collect(Collectors.toList());
     }
 
