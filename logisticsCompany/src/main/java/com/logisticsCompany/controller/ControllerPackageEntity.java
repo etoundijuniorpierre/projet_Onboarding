@@ -7,8 +7,6 @@ import com.logisticsCompany.service.ServicePackageEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collection;
-
 @RestController
 @RequestMapping("/api/compagny")
 public class ControllerPackageEntity {
@@ -26,7 +24,7 @@ public class ControllerPackageEntity {
         //create entity
         PackageEntity createdPackageEntity = servicePackageEntity.createPackage(packageRequestDto);
         //mapping entity to ResponseDto
-        PackageReponseDto packageReponseDto = packageMapper.packageEntityToPackageReponseDto(createdPackageEntity);
+        PackageReponseDto packageReponseDto = packageMapper.toDto(createdPackageEntity);
         return ResponseEntity.ok(packageReponseDto);
     }
 

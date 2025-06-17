@@ -11,9 +11,9 @@ public interface PackageMapper {
 
     //dto to entity
     @Mapping(target = "id",ignore = true)
-    PackageEntity packageRequestDtoToPackageEntity(PackageRequestDto packageRequestDto);
+    PackageEntity toEntity(PackageRequestDto packageRequestDto);
 
     //entity to dto
     @Mapping(target = "id", ignore = false)
-    PackageReponseDto packageEntityToPackageReponseDto(PackageEntity packageEntity);
+    PackageReponseDto toDto(PackageEntity packageEntity);
 }
