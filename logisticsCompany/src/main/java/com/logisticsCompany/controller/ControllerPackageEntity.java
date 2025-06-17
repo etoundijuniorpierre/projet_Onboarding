@@ -35,4 +35,10 @@ public class ControllerPackageEntity {
         return ResponseEntity.ok(servicePackageEntity.getAllPackages());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<PackageReponseDto> getById(@PathVariable int id) {
+        PackageReponseDto packageEntityRecup = servicePackageEntity.getPackageById(id);
+        return ResponseEntity.ok(packageEntityRecup);
+    }
+
 }

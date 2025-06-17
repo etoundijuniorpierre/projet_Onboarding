@@ -37,4 +37,11 @@ public class ServicePackageEntity {
                 .collect(Collectors.toList());
     }
 
+    //getByID
+    public PackageReponseDto getPackageById(int id) {
+        PackageEntity packageEntityExist = packageEntityRepository.findById(id).orElseThrow(() -> new RuntimeException("Package not found"));
+        return packageMapper.toDto(packageEntityExist);
+    }
+
+
 }
