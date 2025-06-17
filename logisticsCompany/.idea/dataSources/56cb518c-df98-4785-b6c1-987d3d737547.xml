@@ -11,7 +11,7 @@
 4||10|c|G
 4||10|C|G
 4||10|T|G</Grants>
-      <IntrospectionStateNumber>3589</IntrospectionStateNumber>
+      <IntrospectionStateNumber>3601</IntrospectionStateNumber>
       <ServerVersion>17.2</ServerVersion>
       <StartupTime>1750056526</StartupTime>
       <TimeZones>true ACDT
@@ -816,7 +816,7 @@ false Zulu
 14704||10|C|G
 14704||-9223372036854775808|U|G
 14704||10|U|G</Grants>
-      <IntrospectionStateNumber>3589</IntrospectionStateNumber>
+      <IntrospectionStateNumber>3601</IntrospectionStateNumber>
       <ObjectId>124174</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4279,80 +4279,11 @@ false Zulu
     <schema id="276" parent="4" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>3589</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2025-06-16.19:15:24</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>3601</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2025-06-17.07:30:13</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>532</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
     </schema>
-    <sequence id="277" parent="276" name="package_entity_id_seq">
-      <ObjectId>124198</ObjectId>
-      <SequenceIdentity>1</SequenceIdentity>
-      <StartValue>1</StartValue>
-      <StateNumber>3586</StateNumber>
-      <StoredType>integer|0s</StoredType>
-      <OwnerName>postgres</OwnerName>
-    </sequence>
-    <table id="278" parent="276" name="package_entity">
-      <ObjectId>124199</ObjectId>
-      <StateNumber>3586</StateNumber>
-      <AccessMethodId>2</AccessMethodId>
-      <OwnerName>postgres</OwnerName>
-    </table>
-    <check id="279" parent="278" name="package_entity_status_check">
-      <ColNames>status</ColNames>
-      <ObjectId>124202</ObjectId>
-      <Predicate>(status)::text = ANY ((ARRAY[&apos;DELIVERED&apos;::character varying, &apos;NOT_DELIVERED&apos;::character varying])::text[])</Predicate>
-      <StateNumber>3586</StateNumber>
-    </check>
-    <column id="280" parent="278" name="id">
-      <IdentityKind>by-default</IdentityKind>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StateNumber>3586</StateNumber>
-      <StoredType>integer|0s</StoredType>
-      <SequenceId>124198</SequenceId>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="281" parent="278" name="description">
-      <Position>2</Position>
-      <StateNumber>3586</StateNumber>
-      <StoredType>varchar(255)|0s</StoredType>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="282" parent="278" name="fragile">
-      <Position>3</Position>
-      <StateNumber>3586</StateNumber>
-      <StoredType>boolean|0s</StoredType>
-      <TypeId>16</TypeId>
-    </column>
-    <column id="283" parent="278" name="status">
-      <Position>4</Position>
-      <StateNumber>3586</StateNumber>
-      <StoredType>varchar(255)|0s</StoredType>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="284" parent="278" name="weight">
-      <Position>5</Position>
-      <StateNumber>3586</StateNumber>
-      <StoredType>integer|0s</StoredType>
-      <TypeId>23</TypeId>
-    </column>
-    <index id="285" parent="278" name="package_entity_pkey">
-      <ColNames>id</ColNames>
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>124205</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>3586</StateNumber>
-      <Unique>1</Unique>
-      <AccessMethodId>403</AccessMethodId>
-    </index>
-    <key id="286" parent="278" name="package_entity_pkey">
-      <NameSurrogate>1</NameSurrogate>
-      <ObjectId>124206</ObjectId>
-      <Primary>1</Primary>
-      <StateNumber>3586</StateNumber>
-      <UnderlyingIndexId>124205</UnderlyingIndexId>
-    </key>
   </database-model>
 </dataSource>

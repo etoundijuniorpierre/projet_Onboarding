@@ -1,6 +1,5 @@
 package com.logisticsCompany.entities;
-import com.logisticsCompany.dto.PackageReponseDto;
-import com.logisticsCompany.entities.Enum.Status;
+import com.logisticsCompany.entities.enums.Status;
 import jakarta.persistence.*;
 import lombok.Data;
 

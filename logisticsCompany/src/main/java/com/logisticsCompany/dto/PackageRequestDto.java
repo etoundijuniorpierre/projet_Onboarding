@@ -1,10 +1,6 @@
 package com.logisticsCompany.dto;
 
-import com.logisticsCompany.entities.Enum.Status;
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.logisticsCompany.entities.enums.Status;
 import lombok.Data;
 
 @Data

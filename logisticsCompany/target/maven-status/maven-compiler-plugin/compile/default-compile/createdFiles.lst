@@ -1,6 +1,6 @@
 com\logisticsCompany\mapper\PackageMapperImpl.class
-com\logisticsCompany\entities\Enum\Status.class
 com\logisticsCompany\mapper\PackageMapper.class
+com\logisticsCompany\entities\enums\Status.class
 com\logisticsCompany\LogisticsCompanyApplication.class
 com\logisticsCompany\entities\PackageEntity.class
 com\logisticsCompany\repository\PackageEntityRepository.class

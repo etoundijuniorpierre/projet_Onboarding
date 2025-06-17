@@ -1,7 +1,7 @@
 D:\data\STAGE\projectTest\projet_Onboarding\logisticsCompany\src\main\java\com\logisticsCompany\controller\ControllerPackageEntity.java
 D:\data\STAGE\projectTest\projet_Onboarding\logisticsCompany\src\main\java\com\logisticsCompany\dto\PackageReponseDto.java
 D:\data\STAGE\projectTest\projet_Onboarding\logisticsCompany\src\main\java\com\logisticsCompany\dto\PackageRequestDto.java
-D:\data\STAGE\projectTest\projet_Onboarding\logisticsCompany\src\main\java\com\logisticsCompany\entities\Enum\Status.java
+D:\data\STAGE\projectTest\projet_Onboarding\logisticsCompany\src\main\java\com\logisticsCompany\entities\enums\Status.java
 D:\data\STAGE\projectTest\projet_Onboarding\logisticsCompany\src\main\java\com\logisticsCompany\entities\PackageEntity.java
 D:\data\STAGE\projectTest\projet_Onboarding\logisticsCompany\src\main\java\com\logisticsCompany\LogisticsCompanyApplication.java
 D:\data\STAGE\projectTest\projet_Onboarding\logisticsCompany\src\main\java\com\logisticsCompany\mapper\PackageMapper.java

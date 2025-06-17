@@ -4,7 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="41f9cd32-36a2-45e2-bf44-9f51943cc3fb" name="Changes" comment="" />
+    <list default="true" id="41f9cd32-36a2-45e2-bf44-9f51943cc3fb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/56cb518c-df98-4785-b6c1-987d3d737547.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/56cb518c-df98-4785-b6c1-987d3d737547.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/56cb518c-df98-4785-b6c1-987d3d737547/storage_v2/_src_/database/companyDB.uxnKqw/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/56cb518c-df98-4785-b6c1-987d3d737547/storage_v2/_src_/database/companyDB.uxnKqw/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/logisticsCompany/controller/ControllerPackageEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/logisticsCompany/controller/ControllerPackageEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/logisticsCompany/dto/PackageReponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/logisticsCompany/dto/PackageReponseDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/logisticsCompany/dto/PackageRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/logisticsCompany/dto/PackageRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/logisticsCompany/entities/Enum/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/logisticsCompany/entities/enums/Status.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/logisticsCompany/entities/PackageEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/logisticsCompany/entities/PackageEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/logisticsCompany/service/ServicePackageEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/logisticsCompany/service/ServicePackageEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/logisticsCompany/controller/ControllerPackageEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/logisticsCompany/controller/ControllerPackageEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/logisticsCompany/dto/PackageReponseDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/logisticsCompany/dto/PackageReponseDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/logisticsCompany/dto/PackageRequestDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/logisticsCompany/dto/PackageRequestDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/logisticsCompany/entities/Enum/Status.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/logisticsCompany/entities/PackageEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/logisticsCompany/entities/PackageEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/logisticsCompany/mapper/PackageMapperImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/logisticsCompany/mapper/PackageMapperImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/logisticsCompany/service/ServicePackageEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/logisticsCompany/service/ServicePackageEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/generated-sources/annotations/com/logisticsCompany/mapper/PackageMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/target/generated-sources/annotations/com/logisticsCompany/mapper/PackageMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/logisticsCompany-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/logisticsCompany-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/logisticsCompany-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/logisticsCompany-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/2025-06-16T20-27-49_882.dumpstream" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.logisticsCompany.LogisticsCompanyApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.logisticsCompany.LogisticsCompanyApplicationTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.logisticsCompany.LogisticsCompanyApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.logisticsCompany.LogisticsCompanyApplicationTests.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,10 +56,10 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "Spring Boot.LogisticsCompanyApplication.executor": "Debug",
-    "git-widget-placeholder": "create",
+    "git-widget-placeholder": "getAll",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/data/STAGE/projectTest/Onboarding/pkf_onboarding_projet_1/logisticsCompany",
+    "last_opened_file_path": "D:/data/STAGE/projectTest/projet_Onboarding/logisticsCompany",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -84,10 +109,23 @@
       <updated>1750100595685</updated>
       <workItem from="1750100598011" duration="1045000" />
       <workItem from="1750101953923" duration="231000" />
+      <workItem from="1750144097412" duration="928000" />
+      <workItem from="1750145044122" duration="1981000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

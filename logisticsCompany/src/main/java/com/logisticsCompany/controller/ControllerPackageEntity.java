@@ -30,4 +30,9 @@ public class ControllerPackageEntity {
         return ResponseEntity.ok(packageReponseDto);
     }
 
+    @GetMapping("/getAll")
+    public ResponseEntity<Collection<PackageReponseDto>> getAll() {
+        return ResponseEntity.ok(servicePackageEntity.getAllPackages());
+    }
+
 }

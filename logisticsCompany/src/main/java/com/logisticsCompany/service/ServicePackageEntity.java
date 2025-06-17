@@ -8,10 +8,9 @@ import com.logisticsCompany.repository.PackageEntityRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
-import static com.logisticsCompany.entities.Enum.Status.DELIVERED;
+//import static com.logisticsCompany.entities.enums.Status.DELIVERED;
 
 @Service
 public class ServicePackageEntity {
@@ -30,5 +29,12 @@ public class ServicePackageEntity {
         return packageEntityRepository.save(packageEntity);
     }
 
+    //getAll
+    public Collection<PackageReponseDto> getAllPackages() {
+        return packageEntityRepository.findAll()
+                .stream()
+                .map(packageMapper::packageEntityToPackageReponseDto)
+                .collect(Collectors.toList());
+    }
 
 }
