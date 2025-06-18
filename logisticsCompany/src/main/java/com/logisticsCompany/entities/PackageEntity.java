@@ -2,7 +2,7 @@ package com.logisticsCompany.entities;
 import com.logisticsCompany.entities.enums.Status;
 import jakarta.persistence.*;
 import lombok.Data;
-
+import org.jetbrains.annotations.NotNull;
 
 
 @Data
@@ -11,17 +11,18 @@ public class PackageEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int id;
+    public Long id;
 
-    @Column()
+    @Column(nullable = false)
     public String description;
 
-    @Column()
+    @Column(nullable = false)
     public Integer weight;
 
     @Column()
-    public Boolean fragile;
+    public boolean fragile;
 
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     public Status status;
 

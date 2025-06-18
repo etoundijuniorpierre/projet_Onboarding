@@ -5,9 +5,9 @@ import lombok.Data;
 
 @Data
 public class PackageReponseDto {
-    public int id;
+    public Long id;
     public String description;
     public Integer weight;
-    public Boolean fragile;
+    public boolean fragile;
     public Status status;
 }
