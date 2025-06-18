@@ -3,15 +3,11 @@ package com.logisticsCompany.service;
 import com.logisticsCompany.dto.PackageReponseDto;
 import com.logisticsCompany.dto.PackageRequestDto;
 import com.logisticsCompany.entities.PackageEntity;
-import com.logisticsCompany.entities.enums.Status;
 import com.logisticsCompany.mapper.PackageMapper;
 import com.logisticsCompany.repository.PackageEntityRepository;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
 //import static com.logisticsCompany.entities.enums.Status.DELIVERED;
 
@@ -26,6 +22,7 @@ public class ServicePackageEntity {
         this.packageMapper = packageMapper;
     }
 
+
     //create packageEntity
     public PackageReponseDto createPackage(PackageRequestDto packageRequestDto) {
         PackageEntity packageEntity = packageMapper.toEntity(packageRequestDto);
@@ -39,11 +36,13 @@ public class ServicePackageEntity {
         return packageMapper.toDtoList(packageEntities);
     }
 
+
     //getByID
     public PackageReponseDto getPackageById(Long id) {
         PackageEntity packageEntityExist = packageEntityRepository.findById(id).orElseThrow(() -> new RuntimeException("Package not found"));
         return packageMapper.toDto(packageEntityExist);
     }
+
 
     //update
     public PackageReponseDto updatePackage(Long id, PackageRequestDto packageRequestDto) {
@@ -58,6 +57,14 @@ public class ServicePackageEntity {
 
         //return a Entity to ReponseDto
         return  packageMapper.toDto(savedPackageEntity);
+    }
+
+
+    //delete
+    public void deletePackage(Long id) {
+        PackageEntity packageEntityExist = packageEntityRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Package not found with ID: " + id));
+        packageEntityRepository.delete(packageEntityExist);
     }
 
 }

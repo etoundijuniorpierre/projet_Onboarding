@@ -48,4 +48,10 @@ public class ControllerPackageEntity {
         return ResponseEntity.ok(updatedPackageEntity);
     }
 
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> delete(@PathVariable Long id) {
+        servicePackageEntity.deletePackage(id);
+        return ResponseEntity.ok("Deleted package");
+    }
+
 }
