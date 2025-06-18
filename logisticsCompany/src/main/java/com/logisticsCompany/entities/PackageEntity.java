@@ -1,5 +1,4 @@
 package com.logisticsCompany.entities;
-import com.logisticsCompany.dto.PackageReponseDto;
 import com.logisticsCompany.entities.Enum.Status;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -12,7 +11,7 @@ public class PackageEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int id;
+    public Long id;
 
     @Column()
     public String description;
@@ -21,7 +20,7 @@ public class PackageEntity {
     public Integer weight;
 
     @Column()
-    public Boolean fragile;
+    public boolean fragile;
 
     @Enumerated(EnumType.STRING)
     public Status status;
