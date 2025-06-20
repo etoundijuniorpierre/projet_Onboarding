@@ -7,14 +7,14 @@ import jakarta.validation.constraints.NotNull;
 
 @Data
 public class PackageRequestDto {
-    @NotBlank(message = "description cannot be null")
+    @NotBlank
     String description;
 
-    @NotNull(message = "weight cannot be null")
+    @NotNull
     Integer weight;
 
     public Boolean fragile;
 
-    @NotNull(message = "status cannot be null")
+    @NotNull
     public Status status;
 }
