@@ -11,18 +11,14 @@ import org.mapstruct.NullValuePropertyMappingStrategy;
 import java.util.List;
 
 @Mapper(componentModel = "spring",
-        // Ignore les champs null du DTO lors du mappage
+
         nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 public interface PackageMapper {
 
-    //dto to entity
     PackageEntity toEntity(PackageRequestDto packageRequestDto);
 
-    //entity to dto
-    @Mapping(target = "id")
     PackageReponseDto toDto(PackageEntity packageEntity);
 
-    //list entity to dto
     List<PackageReponseDto> toDtoList(List<PackageEntity> packageEntities);
 
     void updateEntityFromDto(PackageRequestDto packageRequestDto, @MappingTarget PackageEntity packageEntity);

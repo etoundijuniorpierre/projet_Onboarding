@@ -22,7 +22,7 @@ public class PackageController {
     }
 
 
-    @PostMapping("/")
+    @PostMapping
     public ResponseEntity<PackageReponseDto> create(@Valid @RequestBody PackageRequestDto packageRequestDto ) {
         PackageEntity packageEntity = packageService.createPackage(packageRequestDto);
         PackageReponseDto createdPackageEntity = packageMapper.toDto(packageEntity);
@@ -30,7 +30,7 @@ public class PackageController {
     }
 
 
-    @GetMapping("/All")
+    @GetMapping("/all")
     public ResponseEntity<List<PackageReponseDto>> getAll() {
         List<PackageEntity> packageEntities = packageService.getAllPackages();
         return ResponseEntity.ok(packageMapper.toDtoList(packageEntities));
