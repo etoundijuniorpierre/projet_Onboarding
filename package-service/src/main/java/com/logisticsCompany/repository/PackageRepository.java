@@ -5,6 +5,6 @@ import com.logisticsCompany.entities.PackageEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
-public interface PackageEntityRepository extends JpaRepository<PackageEntity, Long> {
+public interface PackageRepository extends JpaRepository<PackageEntity, Long> {
 
 }

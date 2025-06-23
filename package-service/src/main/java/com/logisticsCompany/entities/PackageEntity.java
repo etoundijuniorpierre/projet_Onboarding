@@ -19,7 +19,7 @@ public class PackageEntity {
     @Column(nullable = false)
     public Integer weight;
 
-    @Column()
+
     public boolean fragile;
 
     @Column(nullable = false)

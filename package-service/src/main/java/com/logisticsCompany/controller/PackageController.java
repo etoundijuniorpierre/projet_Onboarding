@@ -3,54 +3,56 @@ import com.logisticsCompany.dto.PackageReponseDto;
 import com.logisticsCompany.dto.PackageRequestDto;
 import com.logisticsCompany.entities.PackageEntity;
 import com.logisticsCompany.mapper.PackageMapper;
-import com.logisticsCompany.service.ServicePackageEntity;
+import com.logisticsCompany.service.PackageService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collection;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/compagny")
-public class ControllerPackageEntity {
-    private final ServicePackageEntity servicePackageEntity;
+public class PackageController {
+    private final PackageService packageService;
     private final PackageMapper packageMapper;
 
-    public ControllerPackageEntity(ServicePackageEntity servicePackageEntity, PackageMapper packageMapper) {
-        this.servicePackageEntity = servicePackageEntity;
+    public PackageController(PackageService packageService, PackageMapper packageMapper) {
+        this.packageService = packageService;
         this.packageMapper = packageMapper;
     }
 
 
-    @PostMapping("/create")
+    @PostMapping("/")
     public ResponseEntity<PackageReponseDto> create(@Valid @RequestBody PackageRequestDto packageRequestDto ) {
-        PackageReponseDto createdPackageEntity = servicePackageEntity.createPackage(packageRequestDto);
+        PackageEntity packageEntity = packageService.createPackage(packageRequestDto);
+        PackageReponseDto createdPackageEntity = packageMapper.toDto(packageEntity);
         return ResponseEntity.ok(createdPackageEntity);
     }
 
 
-    @GetMapping("/getAll")
+    @GetMapping("/All")
     public ResponseEntity<List<PackageReponseDto>> getAll() {
-        return ResponseEntity.ok(servicePackageEntity.getAllPackages());
+        List<PackageEntity> packageEntities = packageService.getAllPackages();
+        return ResponseEntity.ok(packageMapper.toDtoList(packageEntities));
     }
 
 
     @GetMapping("/{id}")
     public ResponseEntity<PackageReponseDto> getById(@PathVariable Long id) {
-        PackageReponseDto packageEntityRecup = servicePackageEntity.getPackageById(id);
-        return ResponseEntity.ok(packageEntityRecup);
+        PackageEntity packageEntityRecup = packageService.getPackageById(id);
+        PackageReponseDto packageReponseDto = packageMapper.toDto(packageEntityRecup);
+        return ResponseEntity.ok(packageReponseDto);
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<PackageReponseDto> update(@PathVariable Long id, @RequestBody PackageRequestDto packageRequestDto) {
-        PackageReponseDto updatedPackageEntity = servicePackageEntity.updatePackage(id, packageRequestDto);
-        return ResponseEntity.ok(updatedPackageEntity);
+        PackageEntity updatedPackageEntity = packageService.updatePackage(id, packageRequestDto);
+        return ResponseEntity.ok(packageMapper.toDto(updatedPackageEntity));
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> delete(@PathVariable Long id) {
-        servicePackageEntity.deletePackage(id);
+        packageService.deletePackage(id);
         return ResponseEntity.ok("Deleted package");
     }
 

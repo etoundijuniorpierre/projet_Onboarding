@@ -16,17 +16,14 @@ import java.util.List;
 public interface PackageMapper {
 
     //dto to entity
-    @Mapping(target = "id",ignore = true)
     PackageEntity toEntity(PackageRequestDto packageRequestDto);
 
     //entity to dto
-    @Mapping(target = "id", ignore = false)
+    @Mapping(target = "id")
     PackageReponseDto toDto(PackageEntity packageEntity);
 
     //list entity to dto
-    @Mapping(target = "")
     List<PackageReponseDto> toDtoList(List<PackageEntity> packageEntities);
 
-    @Mapping(target = "id", ignore = true)
     void updateEntityFromDto(PackageRequestDto packageRequestDto, @MappingTarget PackageEntity packageEntity);
 }
