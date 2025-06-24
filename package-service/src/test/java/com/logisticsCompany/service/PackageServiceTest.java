@@ -37,13 +37,6 @@ class PackageServiceTest {
     void shouldCreateNewPackageEntity() {
         // 1- given
 
-        //initialisation d'une new entity reponse and request dto
-        PackageRequestDto requestDto = new PackageRequestDto();
-        requestDto.setDescription("une description");
-        requestDto.setWeight(10);
-        requestDto.setFragile(true);
-        requestDto.setStatus(DELIVERED);
-
         PackageEntity packageEntity = new PackageEntity();
         packageEntity.setId(1L);
         packageEntity.setDescription("une description");
@@ -55,14 +48,12 @@ class PackageServiceTest {
         // 2- when
 
         // condition + mapping
-        when(packageMapper.toEntity(requestDto)).thenReturn(packageEntity);
         when(packageRepository.save(packageEntity)).thenReturn(packageEntity);
-        PackageEntity savedEntity = packageService.createPackage(requestDto);
+        PackageEntity savedEntity = packageService.createPackage(packageEntity);
         // 3- then
 
         // vérification appel des méthodes
         assertEquals(packageEntity, savedEntity);
-        verify(packageMapper).toEntity(requestDto);
         verify(packageRepository).save(packageEntity);
         verifyNoMoreInteractions(packageMapper, packageRepository);
 
@@ -142,12 +133,6 @@ class PackageServiceTest {
         //param à chercher
         Long id = 1L;
 
-        // initialise le new requesDto
-        PackageRequestDto requestoDto = new PackageRequestDto();
-        requestoDto.setDescription("new description");
-        requestoDto.setWeight(11);
-        requestoDto.setFragile(true);
-        requestoDto.setStatus(NOT_DELIVERED);
 
         // initialise actual entity
         PackageEntity packageEntity = new PackageEntity();
@@ -160,16 +145,16 @@ class PackageServiceTest {
         // initialise new update entity
         PackageEntity UpdatePackageEntity = new PackageEntity();
         packageEntity.setId(1L);
-        requestoDto.setDescription("new description");
-        requestoDto.setWeight(11);
-        requestoDto.setFragile(true);
-        requestoDto.setStatus(NOT_DELIVERED);
+        packageEntity.setDescription("new description");
+        packageEntity.setWeight(11);
+        packageEntity.setFragile(true);
+        packageEntity.setStatus(NOT_DELIVERED);
 
         //2- when
         when(packageRepository.findById(id)).thenReturn(Optional.of(packageEntity));
         when(packageRepository.save(packageEntity)).thenReturn(UpdatePackageEntity);
 
-        PackageEntity result = packageService.updatePackage(id, requestoDto);
+        PackageEntity result = packageService.updatePackage(id, packageEntity);
 
         //3- then
         assertEquals(UpdatePackageEntity, result);

@@ -1,30 +1,26 @@
 package com.logisticsCompany.service;
 
-import com.logisticsCompany.dto.PackageRequestDto;
+
 import com.logisticsCompany.entities.PackageEntity;
-import com.logisticsCompany.mapper.PackageMapper;
 import com.logisticsCompany.repository.PackageRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-//import static com.logisticsCompany.entities.enums.Status.DELIVERED;
+
 
 @Service
 public class PackageService {
 
     private final PackageRepository packageRepository;
-    private final PackageMapper packageMapper;
 
-    public PackageService(PackageRepository packageRepository, PackageMapper packageMapper) {
+    public PackageService(PackageRepository packageRepository) {
         this.packageRepository = packageRepository;
-        this.packageMapper = packageMapper;
     }
 
 
     //create packageEntity
-    public PackageEntity createPackage(PackageRequestDto packageRequestDto) {
-        PackageEntity packageEntity = packageMapper.toEntity(packageRequestDto);
+    public PackageEntity createPackage(PackageEntity packageEntity) {
         return packageRepository.save(packageEntity);
     }
 
@@ -41,15 +37,9 @@ public class PackageService {
 
 
     //update
-    public PackageEntity updatePackage(Long id, PackageRequestDto packageRequestDto) {
-        //search Entity to update byIb
+    public PackageEntity updatePackage(Long id, PackageEntity packageEntity) {
         PackageEntity packageEntityExist = packageRepository.findById(id).orElseThrow(() -> new RuntimeException("Package not found"));
-
-        //if package exist update Entity from Requestdto
-        packageMapper.updateEntityFromDto(packageRequestDto, packageEntityExist);
-
-        //save modification
-        return packageRepository.save(packageEntityExist);
+        return packageRepository.save(packageEntity);
     }
 
 
