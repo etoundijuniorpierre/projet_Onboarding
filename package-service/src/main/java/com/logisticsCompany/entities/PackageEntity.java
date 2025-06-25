@@ -2,7 +2,6 @@ package com.logisticsCompany.entities;
 import com.logisticsCompany.entities.enums.Status;
 import jakarta.persistence.*;
 import lombok.Data;
-import org.jetbrains.annotations.NotNull;
 
 
 @Data

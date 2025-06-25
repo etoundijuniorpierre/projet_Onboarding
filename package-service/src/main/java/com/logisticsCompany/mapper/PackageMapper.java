@@ -4,7 +4,6 @@ import com.logisticsCompany.dto.PackageReponseDto;
 import com.logisticsCompany.dto.PackageRequestDto;
 import com.logisticsCompany.entities.PackageEntity;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 

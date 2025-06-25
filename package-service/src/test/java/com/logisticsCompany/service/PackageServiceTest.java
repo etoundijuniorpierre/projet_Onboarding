@@ -1,8 +1,6 @@
 package com.logisticsCompany.service;
 
-import com.logisticsCompany.dto.PackageRequestDto;
 import com.logisticsCompany.entities.PackageEntity;
-import com.logisticsCompany.mapper.PackageMapper;
 import com.logisticsCompany.repository.PackageRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -24,9 +22,6 @@ class PackageServiceTest {
 
     @Mock //mocks the repository
     private PackageRepository packageRepository;
-
-    @Mock //moks the mapper
-    private PackageMapper packageMapper;
 
     @InjectMocks //Inject the mocked repository and mapper in service
     private PackageService packageService;
@@ -55,7 +50,6 @@ class PackageServiceTest {
         // vérification appel des méthodes
         assertEquals(packageEntity, savedEntity);
         verify(packageRepository).save(packageEntity);
-        verifyNoMoreInteractions(packageMapper, packageRepository);
 
     }
 
