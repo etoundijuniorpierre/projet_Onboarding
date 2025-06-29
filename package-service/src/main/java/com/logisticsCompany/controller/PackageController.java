@@ -1,5 +1,5 @@
 package com.logisticsCompany.controller;
-import com.logisticsCompany.dto.PackageReponseDto;
+import com.logisticsCompany.dto.PackageResponseDto;
 import com.logisticsCompany.dto.PackageRequestDto;
 import com.logisticsCompany.entities.PackageEntity;
 import com.logisticsCompany.mapper.PackageMapper;
@@ -23,30 +23,30 @@ public class PackageController {
 
 
     @PostMapping
-    public ResponseEntity<PackageReponseDto> create(@Valid @RequestBody PackageRequestDto packageRequestDto ) {
+    public ResponseEntity<PackageResponseDto> create(@Valid @RequestBody PackageRequestDto packageRequestDto ) {
         PackageEntity packageEntity = packageMapper.toEntity(packageRequestDto);
         PackageEntity createPackage = packageService.createPackage(packageEntity);
-        PackageReponseDto createdPackageEntity = packageMapper.toDto(createPackage);
+        PackageResponseDto createdPackageEntity = packageMapper.toDto(createPackage);
         return ResponseEntity.ok(createdPackageEntity);
     }
 
 
     @GetMapping("/all")
-    public ResponseEntity<List<PackageReponseDto>> getAll() {
+    public ResponseEntity<List<PackageResponseDto>> getAll() {
         List<PackageEntity> packageEntities = packageService.getAllPackages();
         return ResponseEntity.ok(packageMapper.toDtoList(packageEntities));
     }
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<PackageReponseDto> getById(@PathVariable Long id) {
+    public ResponseEntity<PackageResponseDto> getById(@PathVariable Long id) {
         PackageEntity packageEntity = packageService.getPackageById(id);
-        PackageReponseDto packageReponseDto = packageMapper.toDto(packageEntity);
-        return ResponseEntity.ok(packageReponseDto);
+        PackageResponseDto packageResponseDto = packageMapper.toDto(packageEntity);
+        return ResponseEntity.ok(packageResponseDto);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<PackageReponseDto> update(@PathVariable Long id, @RequestBody PackageRequestDto packageRequestDto) {
+    public ResponseEntity<PackageResponseDto> update(@PathVariable Long id, @RequestBody PackageRequestDto packageRequestDto) {
          PackageEntity ExistpackageEntity =  packageService.getPackageById(id);
          packageMapper.updateEntityFromDto(packageRequestDto, ExistpackageEntity);
          PackageEntity updatedPackageEntity = packageService.updatePackage(id, ExistpackageEntity);
