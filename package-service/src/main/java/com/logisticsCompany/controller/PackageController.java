@@ -1,6 +1,7 @@
 package com.logisticsCompany.controller;
 import com.logisticsCompany.dto.PackageResponseDto;
 import com.logisticsCompany.dto.PackageRequestDto;
+import com.logisticsCompany.dto.microServiceDto.LocationReponseDto;
 import com.logisticsCompany.entities.PackageEntity;
 import com.logisticsCompany.mapper.PackageMapper;
 import com.logisticsCompany.service.PackageService;
@@ -22,12 +23,14 @@ public class PackageController {
     }
 
 
+
     @PostMapping
     public ResponseEntity<PackageResponseDto> create(@Valid @RequestBody PackageRequestDto packageRequestDto ) {
         PackageEntity packageEntity = packageMapper.toEntity(packageRequestDto);
         PackageEntity createPackage = packageService.createPackage(packageEntity);
-        PackageResponseDto createdPackageEntity = packageMapper.toDto(createPackage);
-        return ResponseEntity.ok(createdPackageEntity);
+        LocationReponseDto locationReponseDto = packageService.getLocationByPackage(createPackage);
+        PackageResponseDto response = packageMapper.toDto(createPackage,locationReponseDto);
+        return ResponseEntity.ok(response);
     }
 
 
@@ -41,7 +44,8 @@ public class PackageController {
     @GetMapping("/{id}")
     public ResponseEntity<PackageResponseDto> getById(@PathVariable Long id) {
         PackageEntity packageEntity = packageService.getPackageById(id);
-        PackageResponseDto packageResponseDto = packageMapper.toDto(packageEntity);
+        LocationReponseDto locationReponseDto = packageService.getLocationByPackage(packageEntity);
+        PackageResponseDto packageResponseDto = packageMapper.toDto(packageEntity, locationReponseDto);
         return ResponseEntity.ok(packageResponseDto);
     }
 
@@ -49,8 +53,11 @@ public class PackageController {
     public ResponseEntity<PackageResponseDto> update(@PathVariable Long id, @RequestBody PackageRequestDto packageRequestDto) {
          PackageEntity ExistpackageEntity =  packageService.getPackageById(id);
          packageMapper.updateEntityFromDto(packageRequestDto, ExistpackageEntity);
+         ExistpackageEntity.setLocationId(packageRequestDto.getLocation());
          PackageEntity updatedPackageEntity = packageService.updatePackage(id, ExistpackageEntity);
-         return ResponseEntity.ok(packageMapper.toDto(updatedPackageEntity));
+         LocationReponseDto locationReponseDto = packageService.getLocationByPackage(ExistpackageEntity);
+        PackageResponseDto responseDto = packageMapper.toDto(updatedPackageEntity, locationReponseDto);
+        return ResponseEntity.ok(responseDto);
     }
 
     @DeleteMapping("/{id}")

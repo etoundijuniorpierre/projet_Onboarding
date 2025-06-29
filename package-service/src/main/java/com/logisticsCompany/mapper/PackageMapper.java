@@ -2,10 +2,9 @@ package com.logisticsCompany.mapper;
 
 import com.logisticsCompany.dto.PackageResponseDto;
 import com.logisticsCompany.dto.PackageRequestDto;
+import com.logisticsCompany.dto.microServiceDto.LocationReponseDto;
 import com.logisticsCompany.entities.PackageEntity;
-import org.mapstruct.Mapper;
-import org.mapstruct.MappingTarget;
-import org.mapstruct.NullValuePropertyMappingStrategy;
+import org.mapstruct.*;
 
 import java.util.List;
 
@@ -14,11 +13,15 @@ import java.util.List;
         nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 public interface PackageMapper {
 
+    @Mapping(target = "locationId", source = "location")
     PackageEntity toEntity(PackageRequestDto packageRequestDto);
 
-    PackageResponseDto toDto(PackageEntity packageEntity);
+    @Mapping(target = "id", source = "packageEntity.id")
+    @Mapping(target = "location", source="locationReponseDto")
+    PackageResponseDto toDto(PackageEntity packageEntity, LocationReponseDto locationReponseDto);
 
     List<PackageResponseDto> toDtoList(List<PackageEntity> packageEntities);
 
     void updateEntityFromDto(PackageRequestDto packageRequestDto, @MappingTarget PackageEntity packageEntity);
+
 }
