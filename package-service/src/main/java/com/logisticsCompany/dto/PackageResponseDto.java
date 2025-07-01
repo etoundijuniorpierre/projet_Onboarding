@@ -1,5 +1,6 @@
 package com.logisticsCompany.dto;
 
+
 import com.logisticsCompany.dto.microServiceDto.LocationReponseDto;
 import com.logisticsCompany.entities.enums.Status;
 import lombok.Data;

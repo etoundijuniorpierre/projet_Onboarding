@@ -4,24 +4,34 @@ import com.logisticsCompany.dto.PackageResponseDto;
 import com.logisticsCompany.dto.PackageRequestDto;
 import com.logisticsCompany.dto.microServiceDto.LocationReponseDto;
 import com.logisticsCompany.entities.PackageEntity;
+import com.logisticsCompany.feign.LocationClient;
 import org.mapstruct.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 @Mapper(componentModel = "spring",
-
         nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-public interface PackageMapper {
+public abstract class PackageMapper {
+
+    @Autowired
+    private LocationClient locationClient;
 
     @Mapping(target = "locationId", source = "location")
-    PackageEntity toEntity(PackageRequestDto packageRequestDto);
+    public abstract PackageEntity toEntity(PackageRequestDto packageRequestDto);
 
     @Mapping(target = "id", source = "packageEntity.id")
-    @Mapping(target = "location", source="locationReponseDto")
-    PackageResponseDto toDto(PackageEntity packageEntity, LocationReponseDto locationReponseDto);
+    @Mapping(target = "location", source = "locationId", qualifiedByName = "packageWithLocation")
+    public abstract PackageResponseDto toDto(PackageEntity packageEntity);
 
-    List<PackageResponseDto> toDtoList(List<PackageEntity> packageEntities);
+    @Mapping(target = "location", source = "locationId", qualifiedByName = "packageWithLocation")
+    public abstract List<PackageResponseDto> toDtoList(List<PackageEntity> packageEntities);
 
-    void updateEntityFromDto(PackageRequestDto packageRequestDto, @MappingTarget PackageEntity packageEntity);
+    public abstract void updateEntityFromDto(PackageRequestDto packageRequestDto, @MappingTarget PackageEntity packageEntity);
+
+    @Named("packageWithLocation")
+    LocationReponseDto packageWithLocation(Long id) {
+        return locationClient.getLocationById(String.valueOf(id)).getBody();
+    }
 
 }

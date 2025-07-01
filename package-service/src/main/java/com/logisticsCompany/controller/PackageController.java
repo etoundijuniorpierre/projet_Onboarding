@@ -28,8 +28,7 @@ public class PackageController {
     public ResponseEntity<PackageResponseDto> create(@Valid @RequestBody PackageRequestDto packageRequestDto ) {
         PackageEntity packageEntity = packageMapper.toEntity(packageRequestDto);
         PackageEntity createPackage = packageService.createPackage(packageEntity);
-        LocationReponseDto locationReponseDto = packageService.getLocationByPackage(createPackage);
-        PackageResponseDto response = packageMapper.toDto(createPackage,locationReponseDto);
+        PackageResponseDto response = packageMapper.toDto(createPackage);
         return ResponseEntity.ok(response);
     }
 
@@ -44,8 +43,7 @@ public class PackageController {
     @GetMapping("/{id}")
     public ResponseEntity<PackageResponseDto> getById(@PathVariable Long id) {
         PackageEntity packageEntity = packageService.getPackageById(id);
-        LocationReponseDto locationReponseDto = packageService.getLocationByPackage(packageEntity);
-        PackageResponseDto packageResponseDto = packageMapper.toDto(packageEntity, locationReponseDto);
+        PackageResponseDto packageResponseDto = packageMapper.toDto(packageEntity);
         return ResponseEntity.ok(packageResponseDto);
     }
 
@@ -55,8 +53,7 @@ public class PackageController {
          packageMapper.updateEntityFromDto(packageRequestDto, ExistpackageEntity);
          ExistpackageEntity.setLocationId(packageRequestDto.getLocation());
          PackageEntity updatedPackageEntity = packageService.updatePackage(id, ExistpackageEntity);
-         LocationReponseDto locationReponseDto = packageService.getLocationByPackage(ExistpackageEntity);
-        PackageResponseDto responseDto = packageMapper.toDto(updatedPackageEntity, locationReponseDto);
+        PackageResponseDto responseDto = packageMapper.toDto(updatedPackageEntity);
         return ResponseEntity.ok(responseDto);
     }
 
