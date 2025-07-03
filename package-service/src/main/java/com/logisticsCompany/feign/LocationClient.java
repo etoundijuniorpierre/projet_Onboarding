@@ -11,13 +11,6 @@ import java.util.List;
 @FeignClient(name = "location-service", url = "http://localhost:8081/api/location")
 public interface LocationClient {
 
-//    @PostMapping
-//    ResponseEntity<LocationReponseDto> addLocation(@RequestBody LocationRequestDto locationRequestDto);
-
-//    @GetMapping("/all")
-//    ResponseEntity<List<LocationReponseDto>> getAllLocations();
-
-
     @GetMapping("/{id}")
     ResponseEntity<LocationReponseDto> getLocationById(@PathVariable String id);
 }

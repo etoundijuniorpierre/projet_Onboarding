@@ -1,11 +1,8 @@
 package com.logisticsCompany.service;
 
 
-import com.logisticsCompany.dto.microServiceDto.LocationReponseDto;
 import com.logisticsCompany.entities.PackageEntity;
-import com.logisticsCompany.feign.LocationClient;
 import com.logisticsCompany.repository.PackageRepository;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,19 +16,8 @@ public class PackageService {
     private final PackageRepository packageRepository;
 
 
-    private final LocationClient locationClient;
-
-
-    public PackageService(PackageRepository packageRepository, LocationClient locationClient) {
+    public PackageService(PackageRepository packageRepository) {
         this.packageRepository = packageRepository;
-        this.locationClient = locationClient;
-    }
-
-
-    // Récupère la localisation d'un colis
-    public LocationReponseDto getLocationByPackage(PackageEntity packageEntity) {
-        ResponseEntity<LocationReponseDto> response = locationClient.getLocationById(packageEntity.getLocationId().toString());
-        return response.getBody();
     }
 
 

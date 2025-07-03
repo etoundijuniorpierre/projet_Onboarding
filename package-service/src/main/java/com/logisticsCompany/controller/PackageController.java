@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/compagny")
+@RequestMapping("/api/package")
 public class PackageController {
     private final PackageService packageService;
     private final PackageMapper packageMapper;
