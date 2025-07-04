@@ -23,7 +23,7 @@ class PackageServiceTest {
     @Mock //mocks the repository
     private PackageRepository packageRepository;
 
-    @InjectMocks //Inject the mocked repository and mapper in service
+    @InjectMocks //Inject the mocked repository
     private PackageService packageService;
 
 
@@ -38,6 +38,7 @@ class PackageServiceTest {
         packageEntity.setWeight(10);
         packageEntity.setFragile(true);
         packageEntity.setStatus(DELIVERED);
+        packageEntity.setLocationId(1L);
 
 
         // 2- when

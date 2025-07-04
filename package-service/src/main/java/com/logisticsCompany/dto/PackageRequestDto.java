@@ -17,4 +17,6 @@ public class PackageRequestDto {
 
     @NotNull
     public Status status;
+
+    public Long location;
 }

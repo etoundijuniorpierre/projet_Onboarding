@@ -12,7 +12,9 @@ import java.util.List;
 @Service
 public class PackageService {
 
+
     private final PackageRepository packageRepository;
+
 
     public PackageService(PackageRepository packageRepository) {
         this.packageRepository = packageRepository;
@@ -32,14 +34,14 @@ public class PackageService {
 
     //getByID
     public PackageEntity getPackageById(Long id) {
-        return packageRepository.findById(id).orElseThrow(() -> new RuntimeException("Package not found"));
+        return packageRepository.findById(id).orElseThrow(() -> new RuntimeException("Package not found with ID: " + id));
     }
 
 
     //update
     public PackageEntity updatePackage(Long id, PackageEntity packageEntity) {
         PackageEntity packageEntityExist = packageRepository.findById(id).orElseThrow(() -> new RuntimeException("Package not found"));
-        return packageRepository.save(packageEntity);
+        return packageRepository.save(packageEntityExist);
     }
 
 

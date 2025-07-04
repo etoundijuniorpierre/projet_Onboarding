@@ -24,4 +24,7 @@ public class PackageEntity {
     @Enumerated(EnumType.STRING)
     public Status status;
 
+    @Column
+    private Long locationId;
+
 }
