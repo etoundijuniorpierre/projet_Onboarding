@@ -1,5 +1,5 @@
 package com.logisticsCompany.controller;
-import com.logisticsCompany.dto.PackageResponseDto;
+import com.logisticsCompany.dto.PackageReponseDto;
 import com.logisticsCompany.dto.PackageRequestDto;
 import com.logisticsCompany.entities.PackageEntity;
 import com.logisticsCompany.mapper.PackageMapper;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/compagny")
+@RequestMapping("/api/package")
 public class PackageController {
     private final PackageService packageService;
     private final PackageMapper packageMapper;
@@ -23,30 +23,30 @@ public class PackageController {
 
 
     @PostMapping
-    public ResponseEntity<PackageResponseDto> create(@Valid @RequestBody PackageRequestDto packageRequestDto ) {
+    public ResponseEntity<PackageReponseDto> create(@Valid @RequestBody PackageRequestDto packageRequestDto ) {
         PackageEntity packageEntity = packageMapper.toEntity(packageRequestDto);
         PackageEntity createPackage = packageService.createPackage(packageEntity);
-        PackageResponseDto createdPackageEntity = packageMapper.toDto(createPackage);
+        PackageReponseDto createdPackageEntity = packageMapper.toDto(createPackage);
         return ResponseEntity.ok(createdPackageEntity);
     }
 
 
     @GetMapping("/all")
-    public ResponseEntity<List<PackageResponseDto>> getAll() {
+    public ResponseEntity<List<PackageReponseDto>> getAll() {
         List<PackageEntity> packageEntities = packageService.getAllPackages();
         return ResponseEntity.ok(packageMapper.toDtoList(packageEntities));
     }
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<PackageResponseDto> getById(@PathVariable Long id) {
+    public ResponseEntity<PackageReponseDto> getById(@PathVariable Long id) {
         PackageEntity packageEntity = packageService.getPackageById(id);
-        PackageResponseDto packageResponseDto = packageMapper.toDto(packageEntity);
-        return ResponseEntity.ok(packageResponseDto);
+        PackageReponseDto packageReponseDto = packageMapper.toDto(packageEntity);
+        return ResponseEntity.ok(packageReponseDto);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<PackageResponseDto> update(@PathVariable Long id, @RequestBody PackageRequestDto packageRequestDto) {
+    public ResponseEntity<PackageReponseDto> update(@PathVariable Long id, @RequestBody PackageRequestDto packageRequestDto) {
          PackageEntity ExistpackageEntity =  packageService.getPackageById(id);
          packageMapper.updateEntityFromDto(packageRequestDto, ExistpackageEntity);
          PackageEntity updatedPackageEntity = packageService.updatePackage(id, ExistpackageEntity);

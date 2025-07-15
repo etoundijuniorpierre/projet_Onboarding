@@ -5,7 +5,7 @@ import com.logisticsCompany.entities.enums.Status;
 import lombok.Data;
 
 @Data
-public class PackageResponseDto {
+public class PackageReponseDto {
     private Long id;
     private String description;
     private Integer weight;

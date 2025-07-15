@@ -2,6 +2,7 @@ package com.logisticsCompany.service;
 
 
 import com.logisticsCompany.entities.PackageEntity;
+import com.logisticsCompany.entities.enums.Status;
 import com.logisticsCompany.repository.PackageRepository;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,9 @@ public class PackageService {
 
     //create packageEntity
     public PackageEntity createPackage(PackageEntity packageEntity) {
+        if (packageEntity.getStatus() == null){
+            packageEntity.setStatus(Status.NOT_DELIVERED);
+        }
         return packageRepository.save(packageEntity);
     }
 

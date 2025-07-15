@@ -15,6 +15,5 @@ public class PackageRequestDto {
 
     public Boolean fragile;
 
-    @NotNull
     public Status status;
 }

@@ -1,6 +1,6 @@
 package com.logisticsCompany.mapper;
 
-import com.logisticsCompany.dto.PackageResponseDto;
+import com.logisticsCompany.dto.PackageReponseDto;
 import com.logisticsCompany.dto.PackageRequestDto;
 import com.logisticsCompany.entities.PackageEntity;
 import org.mapstruct.Mapper;
@@ -16,9 +16,9 @@ public interface PackageMapper {
 
     PackageEntity toEntity(PackageRequestDto packageRequestDto);
 
-    PackageResponseDto toDto(PackageEntity packageEntity);
+    PackageReponseDto toDto(PackageEntity packageEntity);
 
-    List<PackageResponseDto> toDtoList(List<PackageEntity> packageEntities);
+    List<PackageReponseDto> toDtoList(List<PackageEntity> packageEntities);
 
     void updateEntityFromDto(PackageRequestDto packageRequestDto, @MappingTarget PackageEntity packageEntity);
 }

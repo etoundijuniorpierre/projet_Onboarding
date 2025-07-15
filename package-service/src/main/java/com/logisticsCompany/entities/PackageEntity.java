@@ -20,7 +20,7 @@ public class PackageEntity {
 
     public boolean fragile;
 
-    @Column(nullable = false)
+    @Column()
     @Enumerated(EnumType.STRING)
     public Status status;
 
